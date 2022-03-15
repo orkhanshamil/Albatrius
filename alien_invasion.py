@@ -62,7 +62,7 @@ class AlienInvasion:
             elif event.key == pygame.K_SPACE:
                 print("1")
                 self._fire_bullet()
-
+#meh
         def _check_keyup_events(self, event):
             if event.key == pygame.K_RIGHT:
                 self.ship.moving_right=False
