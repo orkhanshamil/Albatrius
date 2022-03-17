@@ -53,21 +53,28 @@ class AlienInvasion:
                     #     # Move the ship to the right.
                     #         self.ship.rect.x -= 1
         def _check_keydown_events(self, event):
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_d:
                 self.ship.moving_right=True
-            elif event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_a:
                 self.ship.moving_left=True
+            elif event.key == pygame.K_s:
+                self.ship.moving_up=True
+            elif event.key == pygame.K_w:
+                self.ship.moving_down=True
             elif event.key == pygame.K_q:
                 sys.exit()
             elif event.key == pygame.K_SPACE:
-                print("1")
                 self._fire_bullet()
 #meh
         def _check_keyup_events(self, event):
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_d:
                 self.ship.moving_right=False
-            elif event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_a:
                 self.ship.moving_left=False
+            elif event.key == pygame.K_s:
+                self.ship.moving_up=False
+            elif event.key == pygame.K_w:
+                self.ship.moving_down=False
 
         def _fire_bullet(self):
             """Create a new bullet and add it to the bullets group."""
@@ -91,7 +98,7 @@ class AlienInvasion:
             self.ship.blitme()
 
             for bullet in self.bullets.sprites():
-                bullet.draw_bullet(self)
+                bullet.draw_bullet()
             # Make the most recently drawn screen visible.
             pygame.display.flip() 
 
